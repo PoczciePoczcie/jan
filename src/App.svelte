@@ -7,39 +7,33 @@
 	import {onMount} from 'svelte'
 	const src = "https://data4.cupsell.pl/upload/generator/247026/640x420/4465398_print_1.png?resize=max_sizes&key=55f9a22768eed085006592c1174c0235";
 
-	onMount(handleClick)
-	function handleClick(){
-		anime({
-  targets: '.papiez',
-  translateX: [
-    { value: 250, duration: 1000, delay: 500 },
-    { value: 0, duration: 1000, delay: 500 }
-  ],
-  translateY: [
-    { value: -40, duration: 500 },
-    { value: 40, duration: 500, delay: 1000 },
-    { value: 0, duration: 500, delay: 1000 }
-  ],
-  scaleX: [
-    { value: 4, duration: 100, delay: 500, easing: 'easeOutExpo' },
-    { value: 1, duration: 900 },
-    { value: 4, duration: 100, delay: 500, easing: 'easeOutExpo' },
-    { value: 1, duration: 900 }
-  ],
-  scaleY: [
-    { value: [1.75, 1], duration: 500 },
-    { value: 2, duration: 50, delay: 1000, easing: 'easeOutExpo' },
-    { value: 1, duration: 450 },
-    { value: 1.75, duration: 50, delay: 1000, easing: 'easeOutExpo' },
-    { value: 1, duration: 450 }
-  ],
-  easing: 'easeOutElastic(1, .8)',
-  loop: true
+// 	onMount(()=>{anime({
+//   targets: '.papiez',
+//   keyframes: [
+//     {translateY: -40},
+//     {translateX: 250},
+//     {translateY: 40},
+//     {translateX: 0},
+//     {translateY: 0}
+//   ],
+//   duration: 4000,
+//   easing: 'easeOutElastic(1, .8)',
+//   loop: true
 
-});
-	}
-	
+
+// });})
+
+const spierdalaj =()=>{
+
+  anime({
+    targets:'.papiez',
+    rotate:[0,360], 
+    duration: 3000
+
+  })
+}
+
 </script>
 <div class='elo'><center>
-<img {src} class='papiez' alt="elo" /></center>
+<img {src} class='papiez' alt="elo" on:mouseover={spierdalaj} on:mouseleave={spierdalaj.pause}/></center>
 </div>
